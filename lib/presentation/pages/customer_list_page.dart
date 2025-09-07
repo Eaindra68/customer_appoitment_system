@@ -81,6 +81,76 @@ class _CustomerListPageState extends State<CustomerListPage> {
                 ],
               ),
             ),
+            SizedBox(
+              width: context.screenWidth,
+              height: 90,
+              child: Row(
+                children: [
+                  Container(
+                    width: 90,
+                    decoration: BoxDecoration(
+                      color: Colors.grey,
+
+                      border: BoxBorder.all(color: Colors.black),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 5),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "U Win Win",
+                            style: context.textTheme.bodyLarge?.copyWith(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 18,
+                            ),
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text:
+                                      "No123,Bogyoke Aung San Rd,Kyauktada Township",
+                                  style: context.textTheme.labelSmall,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                "APPT:23 Jan 2025 Result:",
+                                style: context.textTheme.labelSmall?.copyWith(
+                                  fontSize: 10,
+                                  color: Colors.red,
+                                ),
+                              ),
+                              Icon(
+                                Icons.arrow_drop_up_sharp,
+                                color: Colors.red,
+                              ),
+                              Spacer(),
+                              Text(
+                                "097-8871-4414",
+                                style: context.textTheme.labelSmall?.copyWith(
+                                  fontSize: 10,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Icon(Icons.phone, color: Colors.green),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
