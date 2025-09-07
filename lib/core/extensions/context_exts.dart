@@ -38,4 +38,16 @@ extension ContextExts on BuildContext {
       Navigator.pop<T>(this, result);
     }
   }
+
+  BoxDecoration get decoration => BoxDecoration(
+    color: Colors.white,
+    borderRadius: const BorderRadius.all(Radius.circular(12)),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black.withValues(alpha: 0.1),
+        blurRadius: 8,
+        offset: const Offset(0, 4),
+      ),
+    ],
+  );
 }
