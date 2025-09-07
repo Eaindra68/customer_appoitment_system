@@ -3,18 +3,12 @@ import 'package:flutter/material.dart';
 
 import '../../config/colors_constant.dart';
 
-class AboutUsPage extends StatefulWidget {
+class AboutUsPage extends StatelessWidget {
   const AboutUsPage({super.key});
 
   @override
-  State<AboutUsPage> createState() => _AboutUsPageState();
-}
-
-class _AboutUsPageState extends State<AboutUsPage> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
       appBar: AppBar(
         backgroundColor: ColorConst.primary,
         leading: InkWell(
@@ -28,81 +22,77 @@ class _AboutUsPageState extends State<AboutUsPage> {
           style: context.textTheme.titleLarge?.copyWith(color: Colors.white),
         ),
       ),
-      body: Column(
-        children: [
-          Text(
-            "About Us",
-            style: context.textTheme.bodyLarge?.copyWith(
-              fontWeight: FontWeight.w700,
-              fontSize: 18,
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Text(
+                "About Us",
+                style: context.textTheme.bodyLarge?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 18,
+                ),
+              ),
             ),
-          ),
-          RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text:
-                      "AcePlus Solutions started up in July 2012 as a subsidiary company of ACE Data Systems, one of the leading software houses in Myanmar. Major focus area of AcePlus is the software developments on the mobile and internet platform. AcePlus offers website & web application development services for various business organizations to extend their delivery channel of their products and services. Our vision is to deliver software products for the customers beyond their expectations. AcePlus develops website and software products for both local and international markets.",
-                  style: context.textTheme.labelSmall,
-                ),
-              ],
+            RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text:
+                        "AcePlus Solutions started up in July 2012 as a subsidiary company of ACE Data Systems, one of the leading software houses in Myanmar. Major focus area of AcePlus is the software developments on the mobile and internet platform. AcePlus offers website & web application development services for various business organizations to extend their delivery channel of their products and services. Our vision is to deliver software products for the customers beyond their expectations. AcePlus develops website and software products for both local and international markets.",
+                    style: context.textTheme.bodyMedium,
+                  ),
+                ],
+              ),
             ),
-          ),
-
-          Text(
-            "Our Mission",
-            style: context.textTheme.bodyLarge?.copyWith(
-              fontWeight: FontWeight.w700,
-              fontSize: 18,
+            const SizedBox(height: 15),
+            Center(
+              child: Text(
+                "Our Mission",
+                style: context.textTheme.bodyLarge?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 18,
+                ),
+              ),
             ),
-          ),
-          RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: "- Build Talent through Talent Programs",
-                  style: context.textTheme.labelSmall,
-                ),
-                TextSpan(
-                  text: "- Recruit Experts and Freshers through Universities",
-                  style: context.textTheme.labelSmall,
-                ),
-                TextSpan(
-                  text:
-                      "- Offer one stop solutions in collaboration with partner companies",
-                  style: context.textTheme.labelSmall,
-                ),
-                TextSpan(
-                  text: "Provide Offshore, Nearshore, Onsite IT supports",
-                  style: context.textTheme.labelSmall,
-                ),
-                TextSpan(
-                  text:
-                      "- Deliver IT services on Mobile (iOS & Android), Web Applications",
-                  style: context.textTheme.labelSmall,
-                ),
-              ],
+            Text(
+              "- Build Talent through Talent Programs",
+              style: context.textTheme.bodyMedium,
             ),
-          ),
-          Text(
-            "Our Vision",
-            style: context.textTheme.bodyLarge?.copyWith(
-              fontWeight: FontWeight.w700,
-              fontSize: 18,
+            Text(
+              "- Recruit Experts and Freshers through Universities",
+              style: context.textTheme.bodyMedium,
             ),
-          ),
-          RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text:
-                      "Deliver beyond expectation on software services, system solutions, and professional supports.",
-                  style: context.textTheme.labelSmall,
+            Text(
+              "- Offer one stop solutions in collaboration with partner companies",
+              style: context.textTheme.bodyMedium,
+            ),
+            Text(
+              "Provide Offshore, Nearshore, Onsite IT supports",
+              style: context.textTheme.bodyMedium,
+            ),
+            Text(
+              "- Deliver IT services on Mobile (iOS & Android), Web Applications",
+              style: context.textTheme.bodyMedium,
+            ),
+            const SizedBox(height: 15),
+            Center(
+              child: Text(
+                "Our Vision",
+                style: context.textTheme.bodyLarge?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 18,
                 ),
-              ],
+              ),
             ),
-          ),
-        ],
+            Text(
+              "Deliver beyond expectation on software services, system solutions, and professional supports.",
+              style: context.textTheme.labelSmall,
+            ),
+          ],
+        ),
       ),
     );
   }
