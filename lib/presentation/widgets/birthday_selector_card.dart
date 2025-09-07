@@ -1,6 +1,11 @@
 import 'dart:io';
+import 'package:ace_customer_appoitment_system/config/colors_constant.dart';
+import 'package:ace_customer_appoitment_system/core/extensions/context_exts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import '../../../../../config/ui_constant.dart';
+import '../../core/constants/my_icons.dart';
 
 class BirthDateSelectorCard extends StatelessWidget {
   final String label;
@@ -20,18 +25,11 @@ class BirthDateSelectorCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currentDate = DateTime.now();
+    final now = DateTime.now();
 
-    final defaultStartDate = currentDate.subtract(
-      const Duration(days: 120 * 365),
-    );
-
-    final defaultInitialDate = currentDate.subtract(
-      const Duration(days: 365 * 25),
-    );
-    final defaultLastDate = currentDate.subtract(
-      const Duration(days: 365 * 10),
-    );
+    final firstDate = DateTime(1900);
+    final lastDate = now.add(const Duration(days: 365 * 100));
+    final initialDate = selectedDate ?? now;
 
     final child = GestureDetector(
       onTap: () async {
@@ -39,7 +37,7 @@ class BirthDateSelectorCard extends StatelessWidget {
           await showModalBottomSheet(
             context: context,
             builder: (BuildContext context) {
-              DateTime tempSelectedDate = selectedDate ?? defaultInitialDate;
+              DateTime tempSelectedDate = initialDate;
               return Container(
                 height: 310,
                 color: Colors.white,
@@ -49,9 +47,9 @@ class BirthDateSelectorCard extends StatelessWidget {
                       height: 250,
                       child: CupertinoDatePicker(
                         mode: CupertinoDatePickerMode.date,
-                        initialDateTime: selectedDate ?? defaultInitialDate,
-                        minimumDate: defaultStartDate,
-                        maximumDate: defaultLastDate,
+                        initialDateTime: initialDate,
+                        minimumDate: firstDate,
+                        maximumDate: lastDate,
                         onDateTimeChanged: (DateTime dateTime) {
                           tempSelectedDate = dateTime;
                         },
@@ -61,13 +59,11 @@ class BirthDateSelectorCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CupertinoButton(
-                          child: Text("Cancel"),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
+                          child: const Text("Cancel"),
+                          onPressed: () => Navigator.of(context).pop(),
                         ),
                         CupertinoButton(
-                          child: Text("Done"),
+                          child: const Text("Done"),
                           onPressed: () {
                             Navigator.of(context).pop();
                             onDateChanged?.call(tempSelectedDate);
@@ -83,20 +79,39 @@ class BirthDateSelectorCard extends StatelessWidget {
         } else {
           final value = await showDatePicker(
             context: context,
-            initialDate: defaultInitialDate,
-            firstDate: defaultStartDate,
-            lastDate: defaultLastDate,
+            initialDate: initialDate,
+            firstDate: firstDate,
+            lastDate: lastDate,
           );
           onDateChanged?.call(value);
         }
       },
       child: Padding(
         padding: padding ?? const EdgeInsets.fromLTRB(0, 10, 0, 20),
-        child: TextFormField(
-          decoration: InputDecoration(
-            labelText: label,
-            contentPadding: const EdgeInsets.symmetric(vertical: 12),
-            suffixIcon: Icon(Icons.calendar_month),
+        child: Container(
+          width: context.screenWidth,
+          padding: const EdgeInsets.fromLTRB(10, 12, 10, 12),
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(16)),
+            border: Border.all(color: ColorConst.labelCol),
+          ),
+          child: Row(
+            children: [
+              Text(
+                selectedDate == null
+                    ? label
+                    : UIConstants.dateFormat.format(selectedDate!),
+                style: context.textTheme.bodyMedium,
+              ),
+              const Spacer(),
+              SvgPicture.asset(
+                MyIcons.calendarSvg,
+                colorFilter: const ColorFilter.mode(
+                  ColorConst.labelCol,
+                  BlendMode.srcIn,
+                ),
+              ),
+            ],
           ),
         ),
       ),
