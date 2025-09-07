@@ -6,12 +6,15 @@ import '../../config/colors_constant.dart';
 class HomeCardWidget extends StatelessWidget {
   final IconData icon;
   final String label;
+  final String? sublabel;
+
   final VoidCallback onTap;
   const HomeCardWidget({
     super.key,
     required this.icon,
     required this.label,
     required this.onTap,
+    this.sublabel,
   });
 
   @override
@@ -30,6 +33,11 @@ class HomeCardWidget extends StatelessWidget {
             const SizedBox(height: 10),
             Text(
               label,
+              style: context.textTheme.bodyLarge?.copyWith(color: Colors.white),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              sublabel ?? '',
               style: context.textTheme.bodyLarge?.copyWith(color: Colors.white),
             ),
           ],
