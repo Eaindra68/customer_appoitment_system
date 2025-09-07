@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../config/colors_constant.dart';
+
 extension ContextExts on BuildContext {
   ThemeData get theme => Theme.of(this);
   ColorScheme get colorScheme => Theme.of(this).colorScheme;
@@ -50,4 +52,17 @@ extension ContextExts on BuildContext {
       ),
     ],
   );
+
+  void showCustomToast(
+    final String text, {
+    Color backgroundColor = ColorConst.primary,
+    Color textColor = Colors.white,
+  }) {
+    ScaffoldMessenger.maybeOf(this)?.showSnackBar(
+      SnackBar(
+        content: Text(text, style: TextStyle(color: textColor)),
+        backgroundColor: backgroundColor,
+      ),
+    );
+  }
 }
