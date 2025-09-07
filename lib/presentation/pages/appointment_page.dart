@@ -1,5 +1,6 @@
 import 'package:ace_customer_appoitment_system/config/colors_constant.dart';
 import 'package:ace_customer_appoitment_system/core/extensions/context_exts.dart';
+import 'package:ace_customer_appoitment_system/presentation/pages/customer_list_page.dart';
 import 'package:flutter/material.dart';
 
 class AppointmentPage extends StatefulWidget {
@@ -15,7 +16,10 @@ class _AppointmentPageState extends State<AppointmentPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ColorConst.primary,
-        leading: Icon(Icons.arrow_back, color: Colors.white),
+        leading: InkWell(
+          onTap: () => context.pop(),
+          child: Icon(Icons.arrow_back, color: Colors.white),
+        ),
         automaticallyImplyLeading: false,
         centerTitle: true,
         title: Text(
@@ -24,7 +28,7 @@ class _AppointmentPageState extends State<AppointmentPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => context.pushWidget(CustomerListPage()),
         shape: const CircleBorder(),
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
