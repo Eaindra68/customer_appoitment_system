@@ -3,7 +3,6 @@ import 'package:ace_customer_appoitment_system/core/extensions/context_exts.dart
 import 'package:ace_customer_appoitment_system/presentation/pages/about_us_page.dart';
 import 'package:ace_customer_appoitment_system/presentation/pages/appointment_page.dart';
 import 'package:ace_customer_appoitment_system/presentation/pages/contact_us_page.dart';
-import 'package:ace_customer_appoitment_system/presentation/pages/customer_info_page.dart';
 import 'package:ace_customer_appoitment_system/presentation/pages/customer_list_page.dart';
 import 'package:ace_customer_appoitment_system/presentation/pages/faq_page.dart';
 import 'package:ace_customer_appoitment_system/presentation/pages/noti_page.dart';
