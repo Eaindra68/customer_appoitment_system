@@ -34,7 +34,7 @@ class KYCFaceCard extends StatelessWidget {
             width: width,
             height: height,
             decoration: BoxDecoration(
-              color: Colors.grey,
+              color: Colors.white,
               boxShadow: [
                 BoxShadow(
                   color: Theme.of(context).shadowColor.withValues(alpha: 0.03),
