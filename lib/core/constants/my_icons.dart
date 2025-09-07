@@ -3,4 +3,5 @@ class MyIcons {
 
   static const calendarSvg = 'assets/icons/calendar_outlined.svg';
   static const cameraSvg = 'assets/icons/camera.svg';
+  static const appIconSvg = 'assets/icons/appIcon.svg';
 }
