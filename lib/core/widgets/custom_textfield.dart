@@ -6,6 +6,8 @@ import '../../config/colors_constant.dart';
 class CustomTextfield extends StatefulWidget {
   final TextEditingController controller;
   final String? hintText;
+  final String? labeltext;
+
   final TextStyle? style;
   final TextStyle? hintTextStyle;
   final EdgeInsets? padding;
@@ -38,6 +40,7 @@ class CustomTextfield extends StatefulWidget {
     this.onChanged,
     this.onSubmitted,
     this.borderRadius,
+    this.labeltext,
   });
 
   @override
@@ -51,14 +54,15 @@ class _CustomTextfieldState extends State<CustomTextfield> {
       textAlignVertical: TextAlignVertical.top,
       readOnly: widget.readOnly,
       controller: widget.controller,
-      style: context.textTheme.bodyMedium?.copyWith(
-        color: ColorConst.fieldtextCol,
-      ),
+      style: context.textTheme.bodyMedium?.copyWith(color: ColorConst.labelCol),
       expands: false,
+
       decoration: InputDecoration(
+        labelText: widget.labeltext,
         hintText: widget.hintText,
+
         hintStyle: context.textTheme.bodyMedium?.copyWith(
-          color: ColorConst.fieldtextCol,
+          color: ColorConst.labelCol,
         ),
         contentPadding: const EdgeInsets.symmetric(
           vertical: 12,
@@ -69,10 +73,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
 
         border: OutlineInputBorder(
           borderRadius: widget.borderRadius ?? BorderRadius.circular(16),
-          borderSide: const BorderSide(
-            color: ColorConst.fieldborderCol,
-            width: 1,
-          ),
+          borderSide: const BorderSide(color: Colors.white, width: 1),
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: ColorConst.fieldborderCol),
