@@ -1,4 +1,5 @@
 import 'package:ace_customer_appoitment_system/config/my_theme.dart';
+import 'package:ace_customer_appoitment_system/presentation/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'presentation/pages/bottom_nav_page.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: MyTheme.lightTheme,
       title: 'Material App',
-      home: BottomNavPage(),
+      home: SplashPage(),
     );
   }
 }
