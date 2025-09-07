@@ -1,4 +1,7 @@
+import 'package:ace_customer_appoitment_system/config/my_theme.dart';
 import 'package:flutter/material.dart';
+
+import 'presentation/pages/bottom_nav_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -8,11 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: MyTheme.lightTheme,
       title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Material App Bar')),
-        body: const Center(child: Text('Hello World')),
-      ),
+      home: BottomNavPage(),
     );
   }
 }
