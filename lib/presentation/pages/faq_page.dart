@@ -1,4 +1,7 @@
+import 'package:ace_customer_appoitment_system/core/extensions/context_exts.dart';
 import 'package:flutter/material.dart';
+
+import '../../config/colors_constant.dart';
 
 class FAQPage extends StatelessWidget {
   const FAQPage({super.key});
@@ -6,7 +9,19 @@ class FAQPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Frequently Asked Questions")),
+      appBar: AppBar(
+        backgroundColor: ColorConst.primary,
+        leading: InkWell(
+          onTap: () => context.pop(),
+          child: Icon(Icons.arrow_back, color: Colors.white),
+        ),
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Text(
+          "Frequently Asked Questions",
+          style: context.textTheme.titleLarge?.copyWith(color: Colors.white),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
